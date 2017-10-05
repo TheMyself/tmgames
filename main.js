@@ -44,7 +44,7 @@ food: food
 }
 
 function save() {
-  save.food=food;
+  save.food=Math.trunc(food);
   localStorage.setItem("save",JSON.stringify(save));
 }
 

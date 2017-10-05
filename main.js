@@ -49,8 +49,11 @@ localStorage.setItem("save",JSON.stringify(save));
 
 function load() {
   var savegame = JSON.parse(localStorage.getItem("save"));
-  if (typeof savegame.food !== "undefined") food = savegame.food;
-  else food=200;
+  if (typeof savegame.food !== "undefined"){
+      food = savegame.food;
+  }else{
+      food=200;
+  }
 }
 
 window.setInterval(function(){

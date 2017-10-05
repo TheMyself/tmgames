@@ -39,11 +39,12 @@ food = food - document.getElementById('pAmount').innerHTML * 0.3;
 document.getElementById('fAmount').innerHTML = Math.trunc(food);
 }
 
-function save() {
 var save = {
 metallonite: metallonite,
 food: food
 }
+
+function save() {
 localStorage.setItem("save",JSON.stringify(save));
 }
 

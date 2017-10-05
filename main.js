@@ -40,7 +40,6 @@ document.getElementById('fAmount').innerHTML = Math.trunc(food);
 }
 
 var save = {
-metallonite: metallonite,
 food: food
 }
 

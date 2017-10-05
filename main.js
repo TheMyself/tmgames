@@ -50,7 +50,7 @@ function save() {
 
 function load() {
   var savegame = JSON.parse(localStorage.getItem("save"));
-  if (typeof savegame.food !== "undefined") food = savegame.food;
+  if (typeof savegame.food !== "undefined") food = Math.trunc(savegame.food);;
 }
 
 window.setInterval(function(){

@@ -1,5 +1,8 @@
-var metallonite = 0;
-var food= 200;
+var game = {
+metallonite = 0,
+food: 200
+}
+
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -35,12 +38,8 @@ function buyMiner(){
 };
 
 function pFoodConsume(){
-food = food - document.getElementById('pAmount').innerHTML * 0.3;
-document.getElementById('fAmount').innerHTML = Math.trunc(food);
-}
-
-var game = {
-food: 150
+game.food -= document.getElementById('pAmount').innerHTML * 0.3;
+document.getElementById('fAmount').innerHTML = Math.trunc(game.food);
 }
 
 function save() {

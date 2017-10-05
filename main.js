@@ -1,6 +1,6 @@
 var game = {
-metallonite = 0,
-food: 200
+metallonite = metallonite,
+food: food
 }
 
 function openTab(evt, tabName) {

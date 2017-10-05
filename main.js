@@ -1,5 +1,5 @@
 var metallonite = 0;
-var food;
+var food= 200;
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");

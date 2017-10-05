@@ -44,7 +44,8 @@ food: food
 }
 
 function save() {
-localStorage.setItem("save",JSON.stringify(save));
+  save.food=food;
+  localStorage.setItem("save",JSON.stringify(save));
 }
 
 function load() {

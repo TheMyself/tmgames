@@ -1,0 +1,32 @@
+div.tab {
+    overflow: hidden;
+    border: 1px solid #555555;
+}
+button.basic {
+    border: 2px solid #555555;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 8px 15px;
+}
+button.basic:hover {
+    background-color: #555555;
+    color: white;
+}
+div.tab button {
+    background-color: inherit;
+    float: left;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 0.4px solid #555555;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    padding: 9px 16px;
+}
+td.rightUi {
+    text-align: right;
+}

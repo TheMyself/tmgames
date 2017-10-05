@@ -39,18 +39,18 @@ food = food - document.getElementById('pAmount').innerHTML * 0.3;
 document.getElementById('fAmount').innerHTML = Math.trunc(food);
 }
 
-var save = {
-food: food
+var game = {
+food: 200
 }
 
 function save() {
-  save.food=food;
-  localStorage.setItem("save",JSON.stringify(save));
+  localStorage.setItem("key",JSON.stringify(game));
 }
 
 function load() {
-  var savegame = JSON.parse(localStorage.getItem("save"));
-  if (typeof savegame.food !== "undefined") food = savegame.food;
+    var data = JSON.parse(localStorage.getItem("key"))
+    if (!data) return
+    game = data
 }
 
 window.setInterval(function(){

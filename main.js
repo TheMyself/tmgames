@@ -44,13 +44,13 @@ food: food
 }
 
 function save() {
-  save.food=Math.trunc(food);
+  save.food=food;
   localStorage.setItem("save",JSON.stringify(save));
 }
 
 function load() {
   var savegame = JSON.parse(localStorage.getItem("save"));
-  if (typeof savegame.food !== "undefined") food = Math.trunc(savegame.food);;
+  if (typeof savegame.food !== "undefined") food = savegame.food;
 }
 
 window.setInterval(function(){

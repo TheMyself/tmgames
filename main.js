@@ -38,12 +38,12 @@ function buyMiner(){
 };
 
 function pFoodConsume(){
-game.food -= document.getElementById('pAmount').innerHTML * 0.3;
+game.food = game.food - document.getElementById('pAmount').innerHTML * 0.3;
 document.getElementById('fAmount').innerHTML = Math.trunc(game.food);
 }
 
-function save() {
-  localStorage.setItem("key",JSON.stringify(game));
+function save(){
+    localStorage.setItem("key",JSON.stringify(game));
 }
 
 function load() {

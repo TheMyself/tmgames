@@ -1,5 +1,3 @@
-var food = 200;
-
 var game = {
 metallonite = metallonite,
 food: food
@@ -50,8 +48,17 @@ function save(){
 
 function load() {
     var data = JSON.parse(localStorage.getItem("key"));
-    if (!data) return;
+    if (!data){
+        data{
+            metallonite:0,
+            food:200
+        }
+    }
     game = data;
+}
+
+function delete() {
+    localStorage.removeItem("key")
 }
 
 window.setInterval(function(){

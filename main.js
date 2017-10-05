@@ -47,9 +47,9 @@ function save() {
 }
 
 function load() {
-    var data = JSON.parse(localStorage.getItem("key"))
-    if (!data) return
-    game = data
+    var data = JSON.parse(localStorage.getItem("key"));
+    if (!data) return;
+    game = data;
 }
 
 window.setInterval(function(){

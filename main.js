@@ -1,3 +1,5 @@
+var food = 200;
+
 var game = {
 metallonite = metallonite,
 food: food

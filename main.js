@@ -40,7 +40,7 @@ document.getElementById('fAmount').innerHTML = Math.trunc(food);
 }
 
 var game = {
-food: 200
+food: 150
 }
 
 function save() {

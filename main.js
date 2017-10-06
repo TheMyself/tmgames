@@ -49,10 +49,8 @@ function save(){
 function load() {
     var data = JSON.parse(localStorage.getItem("key"));
     if (!data){
-        data{
-            metallonite:0,
-            food:200
-        }
+        data.food=200;
+        data.metallonite=0;
     }
     game = data;
 }

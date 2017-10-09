@@ -1,4 +1,5 @@
 var game;
+var i=0;
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -69,8 +70,8 @@ function deleteSave() {
 
 window.setInterval(function(){
     people();
+    i++;
+    if (i == 12){
+        check();
+    }
 }, 1000);
-
-window.setInterval(function(){
-    check();
-}, 12000);

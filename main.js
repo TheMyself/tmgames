@@ -46,6 +46,7 @@ function check(){
 /*  if (game.food <= 0 && game.people>0) game.people--;
     else if (game.food > 0 && game.people<game.house * 3) game.people++;*/
 game.people--;
+document.getElementById('people').innerHTML = game.people;
 }
 
 function load() {

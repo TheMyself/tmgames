@@ -1,5 +1,4 @@
 var game;
-var i=0;
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -44,8 +43,9 @@ function save(){
 }
 
 function check(){
-  if (game.food <= 0 && game.people>0) game.people--;
-    else if (game.food > 0 && game.people<game.house * 3) game.people++;
+/*  if (game.food <= 0 && game.people>0) game.people--;
+    else if (game.food > 0 && game.people<game.house * 3) game.people++;*/
+game.people--;
 }
 
 function load() {
@@ -70,8 +70,8 @@ function deleteSave() {
 
 window.setInterval(function(){
     people();
-    i++;
-    if (i == 12){
-        check();
-    }
 }, 1000);
+
+window.setInterval(function(){
+    check;
+}, 12000);

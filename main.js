@@ -28,10 +28,45 @@ function buyMiner(){
 }
 
 function people(){
-  var currentFood = game.food - game.people * 0.33;
+  var currentFood = (game.food - game.people * 0.33)+game.farmer * 0.5;
   game.food = (currentFood >= 0) ? currentFood:0;
+  game.food = (currentFood <= 200) ? currentFood:200;
   document.getElementById('food').innerHTML = Math.trunc(game.food);
+  var currentWood = game.wood + game.lumberjack;
+  game.wood = (currentWood <= 200) ? currentWood:200;
+  document.getElementById('wood').innerHTML = game.wood;
+}
 
+function buyFarmer(){
+  if (game.people>game.farmer && game.occupiedPeople < game.people) {
+    game.farmer++;
+    document.getElementById('farmer').innerHTML=game.farmer;
+    game.occupiedPeople++;
+  }
+}
+
+function sellFarmer(){
+  if (game.farmer>0) {
+    game.farmer--;
+    document.getElementById('farmer').innerHTML=game.farmer;
+    game.occupiedPeople--;
+  }
+}
+
+function buyLumberjack(){
+  if (game.people>game.lumberjack && game.occupiedPeople < game.people) {
+    game.lumberjack++;
+    document.getElementById('lumberjack').innerHTML=game.lumberjack;
+    game.occupiedPeople++;
+  }
+}
+
+function sellLumberjack(){
+  if (game.lumberjack>0) {
+    game.lumberjack--;
+    document.getElementById('lumberjack').innerHTML=game.lumberjack;
+    game.occupiedPeople--;
+  }
 }
 
 function save(){
@@ -43,10 +78,13 @@ function save(){
 }
 
 function check(){
-/*  if (game.food <= 0 && game.people>0) game.people--;
-    else if (game.food > 0 && game.people<game.house * 3) game.people++;*/
-game.people--;
-document.getElementById('people').innerHTML = game.people;
+  if (game.food <= 0.11 && game.people>0) {
+    game.people--;
+    document.getElementById('people').innerHTML=game.people;
+  }else if (game.food > 0.11 && game.peopl<game.house * 3) {
+    game.people++;
+    document.getElementById('people').innerHTML=game.people;
+  }
 }
 
 function load() {
@@ -57,12 +95,22 @@ function load() {
       food : 200,
       warehouse : 1,
       house : 1,
-      people : 3
+      people : 3,
+      farmer : 0,
+      wood : 0,
+      lumberjack : 0,
+      occupiedPeople : 0
       };
     }else game = data;
     openTab(event, 'Metallonite');
     people();
-    document.getElementById('people').innerHTML = game.people;
+    initialize();
+}
+
+function initialize(){
+  document.getElementById('people').innerHTML = game.people;
+  document.getElementById('farmer').innerHTML = game.farmer;
+  document.getElementById('lumberjack').innerHTML = game.lumberjack;
 }
 
 function deleteSave() {
@@ -74,5 +122,5 @@ window.setInterval(function(){
 }, 1000);
 
 window.setInterval(function(){
-    check;
+    check();
 }, 12000);

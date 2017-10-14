@@ -28,9 +28,10 @@ function buyMiner(){
 }
 
 function people(){
-  var currentFood = (game.food - game.people * 0.33)+game.farmer * 0.5;
-  game.food = (currentFood >= 0) ? currentFood:0;
-  game.food = (currentFood <= 200) ? currentFood:200;
+  var currentFood = game.food - (game.people * 0.33) + (game.farmer * 0.5);
+  game.food = currentFood <= 200 ? currentFood:200;
+  currentFood = game.food;
+  game.food = currentFood >= 0 ? currentFood:0;
   document.getElementById('food').innerHTML = Math.trunc(game.food);
   var currentWood = game.wood + game.lumberjack;
   game.wood = (currentWood <= 200) ? currentWood:200;
@@ -78,10 +79,10 @@ function save(){
 }
 
 function check(){
-  if (game.food <= 0.11 && game.people>0) {
+  if (game.food <= 0 && game.people>0) {
     game.people--;
     document.getElementById('people').innerHTML=game.people;
-  }else if (game.food > 0.11 && game.peopl<game.house * 3) {
+  }else if (game.food > 0 && game.people<game.house * 3) {
     game.people++;
     document.getElementById('people').innerHTML=game.people;
   }

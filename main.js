@@ -1,4 +1,5 @@
 var game;
+var foodHTML = document.getElementById('food').innerHTML;
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -36,6 +37,13 @@ function people(){
   var currentWood = game.wood + game.lumberjack;
   game.wood = (currentWood <= 200) ? currentWood:200;
   document.getElementById('wood').innerHTML = game.wood;
+}
+
+function getFood(){
+  if (game.food < 10) {
+    game.food++;
+    document.getElementById('food').innerHTML = Math.trunc(game.food);
+  }
 }
 
 function buyFarmer(){
@@ -80,7 +88,18 @@ function save(){
 
 function check(){
   if (game.food <= 0 && game.people>0) {
+    var dead = 0;
     game.people--;
+    if (game.farmer>0) {
+      game.farmer--;
+      document.getElementById('farmer').innerHTML=game.farmer;
+      game.occupiedPeople--;
+      dead++;
+    }else if (game.lumberjack > 0 && dead == 0) {
+      game.lumberjack--;
+      document.getElementById('lumberjack').innerHTML=game.lumberjack;
+      game.occupiedPeople--;
+    }
     document.getElementById('people').innerHTML=game.people;
   }else if (game.food > 0 && game.people<game.house * 3) {
     game.people++;
